@@ -405,8 +405,7 @@
                             </div>
                             <input type="password" name="senha" class="form-control" placeholder="Senha..." id="senha">
                           </div>
-                        </d0
-                        iv>
+                        </div>
                         <div class="col-md-5 mt-3">
                           <div class="input-group">
                             <div class="input-group-prepend">
@@ -536,7 +535,9 @@
 	           	  mudou = true;
           	  }
             });
-            
+          	  
+			var clique = 0;
+			
           	//Regras de validação do form de Cadastro do Profissional
             $('.btn-finish').click(function(){
           	  if($('.formCadastroProfissional').valid()){
@@ -544,17 +545,23 @@
         			S3.showSwal("readterms");
         		}else{
         			if($(".tagsinput").val() != "Aqui aparecerá as que você escolher, caso erre pode excluir sem problemas xD"){
-        				$.ajax({   
-     					   type: 'POST',
-     					   url: 'acoes/cadastrarProfissional.jsp',
-     					   data: $('.formCadastroProfissional').serialize(),
-     					   success: function(){
-     							S3.showSwal("sendedemail");
-     					   },
-     					   error: function(){
-     							S3.showToast("errorsubmit");
-     					   }
-     					});
+	        			if(clique == 0){
+        					$.ajax({   
+	     					   type: 'POST',
+	     					   url: 'acoes/cadastrarProfissional.jsp',
+	     					   data: $('.formCadastroProfissional').serialize(),
+	     					   success: function(){
+	     							S3.showSwal("sendedemail");
+	     					   },
+	     					   error: function(){
+	     							S3.showToast("errorsubmit");
+	     					   }
+	     					});
+        					
+        					clique++;
+	        			}else{
+ 							S3.showSwal("sendedemail");
+	        			}
         			}else{
         				S3.showToast("informespe");
         			}

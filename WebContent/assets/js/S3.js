@@ -46,12 +46,12 @@
 	  			  },
 	  			  cidadeResi: {
 	  				  required: true
-	  			  },*/
+	  			  },
 	  			  ufResi: {
 	  				  required: true,
 	  				  lettersonly: true,
 	  				  maxlength: 2
-	  			  },
+	  			  },*/
 	  			  crm: {
 	  				  required: true,
 	  				  digits: true
